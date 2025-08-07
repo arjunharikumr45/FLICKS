@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flik Subscription</title>
+    <link rel="stylesheet" href="{% static 'css/subscrption.css' %}">
+</head>
+<body>
+
+    <!--
+    <div class="container">
+        <h1>Choose Your Subscription Plan</h1>
+        <p>Select a plan that best suits you and start enjoying unlimited content.</p>
+        
+        <div class="plans">
+            <button class="plan-btn" onclick="subscribe('Basic', '₹199')">Basic - ₹199</button>
+            <button class="plan-btn" onclick="subscribe('Standard', '₹499')">Standard - ₹499</button>
+            <button class="plan-btn" onclick="subscribe('Premium', '₹799')">Premium - ₹799</button>
+        </div>
+    </div>
+    -->
+
+    <div class="subs-details">
+        <h1>About Your Subscription Plan</h1>
+
+        <h2>Plan of ₹199</h2>
+        <ul>
+            <li>Subscription Cost: ₹199/month</li>
+            <li>Video Quality: SD (Standard Definition)</li>
+            <li>Content Access: Full access to Flik’s movies, TV shows, and originals</li>
+            <li>Offline Download: Available for mobile devices only</li>
+        </ul>
+
+        <h2>Plan of ₹499</h2>
+        <ul>
+            <li>Subscription Cost: ₹499/month</li>
+            <li>Ad-free streaming</li>
+            <li>Access on multiple devices</li>
+            <li>High-quality content viewing</li>
+            <li>Content Access: Full access to Flik’s movies, TV shows, and originals</li>
+            <li>Offline Download: Available for mobile devices only</li>
+        </ul>
+
+        <h2>Plan of ₹799</h2>
+        <ul>
+            <li>Subscription Cost: ₹799/month</li>
+            <li>Ad-free experience</li>
+            <li>Access to premium/exclusive content</li>
+            <li>Priority customer support</li>
+            <li>Early access to new features</li>
+            <li>Content Access: Full access to Flik’s movies, TV shows, and originals</li>
+            <li>Offline Download: Available for mobile devices only</li>
+        </ul>
+    </div>
+
+    <!-- Go to Payment Button -->
+    <div style="margin-top: 40px; display: flex; justify-content: center;">
+        <a href="{% url 'payment' %}">
+            <button class="plan-btn">Go to Payment</button>
+        </a>
+    </div>
+
+    <script>
+        function subscribe(plan, amount) {
+            alert(`You have selected the ${plan} plan for ${amount}. Proceed to payment.`);
+        }
+    </script>
+
+</body>
+</html>

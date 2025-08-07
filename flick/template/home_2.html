@@ -1,0 +1,581 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>www.flick.in</title>
+  <link rel="stylesheet" href="{% static 'css/home_2.css' %}">
+</head>
+<body>
+  <div class="navbar1">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">flick</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">HOME</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            CATEGORIES
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">SPORTS</a></li>
+              <li><a class="dropdown-item" href="#">FUN</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="#">PODCAST</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">YOU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'subscription' %}">SUBS.PLAN</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button class="btn btn-danger" type="submit">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'image/329633-background.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'image/l6720220908110534.webp' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'image/movie-poster-background-q1zm830g0hfww2lk.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'image/my-favourite-film-posters-1080x608-1.webp' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fourth slide label</h5>
+        <p>Some representative placeholder content for the fourth slide.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+
+<p class="trending">Trending Now</p>
+
+    <section class="slider-container">
+        <div class="slider-images d-flex">
+            <div class="slider-img active">
+                <img src="{% static 'image/3acd1287e133f75ecd8910abd5796210.jpg' %}" alt="Mickey">
+                <div class="details">
+                    <h2>Mickey</h2>
+                    <p>2003</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="{% static 'image/bc640f04563546f1a6284b9aac7b621f.jpg' %}" alt="Mufasa">
+                <div class="details">
+                    <h2>Mufasa</h2>
+                    <p>2024</p>
+                </div>
+            </div>
+            <div class="slider-img ">
+                <img src="{% static 'image/f61d14c92e9e89430b3043809c9ff604.jpg' %}" alt="Batman">
+                <div class="details">
+                    <h2>Batman</h2>
+                    <p>2016</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="{% static 'image/e55da36429988c2f6d4302ef2b330d3f.jpg' %}" alt="Substance">
+                <div class="details">
+                    <h2>Substance</h2>
+                    <p>2024</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="{% static 'image/d3d987b46b5cadd56ede2996a219fa3e.jpg' %}" alt="Thunderbolts">
+                <div class="details">
+                    <h2>Thunderbolts</h2>
+                    <p>2017</p>
+                </div>
+            </div>
+            <div class="slider-img">
+                <img src="{% static 'image/114146e7039840371b5fe84365acd6c4.jpg' %}" alt="Thunderbolts">
+                <div class="details">
+                    <h2>Thunderbolts</h2>
+                    <p>2017</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.slider-img', function() {
+                $('.slider-img').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+
+
+
+  <h1 class="mt-4 mb-4">ACTION MOVIES</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderAction', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderAction">
+        {% for movie in movie %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">title:{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderAction', 'right')">&#10095;</button>
+  </div>
+  
+  <h1 class="mt-4 mb-4">KIDS MOVIES</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderKids', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderKids">
+        {% for movie in kids %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderKids', 'right')">&#10095;</button>
+  </div>
+  
+  <h1 class="mt-4 mb-4">HORROR MOVIES</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderhorror', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderhorror">
+        {% for movie in horror %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderhorror', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">FEEL GOOD</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderfeelgood', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderfeelgood">
+        {% for movie in feelgood %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderfeelgood', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">FAMILY</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderfamily', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderfamily">
+        {% for movie in family %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderfamily', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">COMEDY</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSlidercomedy', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSlidercomedy">
+        {% for movie in comedy %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSlidercomedy', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">MALAYALAM</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSlidermalayalam', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSlidermalayalam">
+        {% for movie in malayalam %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSlidermalayalam', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">TAMIL</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSlidertamil', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSlidertamil">
+        {% for movie in tamil %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSlidertamil', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">FANTASY</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderfantasy', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderfantasy">
+        {% for movie in fantasy %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderfantasy', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">CRIME THRILLER</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSlidercrime_thriller', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSlidercrime_thriller">
+        {% for movie in crime_thriller %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSlidercrime_thriller', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">SURVIVAL MOVIES</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSlidersurvival_movie', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSlidersurvival_movie">
+        {% for movie in survival_movie %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSlidersurvival_movie', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">ADVENTURE</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSlideradventure', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSlideradventure">
+        {% for movie in adventure%}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSlideradventure', 'right')">&#10095;</button>
+  </div>
+  <h1 class="mt-4 mb-4">SCIENCE</h1>
+  <div class="card-slider-wrapper">
+    <button class="slider-btn left" onclick="scrollSlider('cardSliderscience_fiction', 'left')">&#10094;</button>
+    <div class="card-slider" id="cardSliderscience_fiction">
+        {% for movie in science_fiction %}
+        <div class="card custom-card">
+            {% if movie.Image %}
+            <img src="{{ movie.Image.url }}" class="card-img-top img-fluid" alt="{{ movie.Name }}">
+            {% else %}
+            <img src="/static/images/default.png" class="card-img-top img-fluid" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">description:{{ movie.description }}</p>
+                {% if movie.embed_link %}
+                <a href="{{ movie.embed_link }}" target="_blank" class="btn btn-primary">▶️ Play Now</a>
+              {% else %}
+                <button class="btn btn-secondary" disabled>No movie Available</button>
+              {% endif %}
+              
+            </div>
+        </div>
+        {% empty %}
+        <p>No Products Available</p>
+        {% endfor %}
+    </div>
+    <button class="slider-btn right" onclick="scrollSlider('cardSliderscience_fiction', 'right')">&#10095;</button>
+  </div>
+  <div class="footer">
+    <h2>Any inqury? call 000-0000-000</h2>
+    <div class="row">
+        <div class="col">
+            <a href="#">terms and conditions</a>
+        </div>
+        <div class="col">
+            <a href="#">help center</a>
+        </div>
+        <div class="col">
+            <a href="#">account</a>
+        </div>
+        <div class="col">
+            <a href="#">privacy</a>
+        </div>
+    </div>
+</div>
+  
+  
+  <script>
+    function scrollSlider(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      const scrollAmount = 1000;
+  
+      if (slider) {
+        if (direction === 'left') {
+          slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+          slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      }
+    }
+  </script>
+  
+  
+    
+  
+
+  
+
+</body>
+</html>

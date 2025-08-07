@@ -1,0 +1,116 @@
+/* Body with gradient background and bounce-in animation */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #000000, #088187);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    animation: bounceIn 1s ease;
+}
+
+/* Bounce-in animation keyframes */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-10px);
+    }
+    80% {
+        transform: scale(0.98) translateY(5px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Floating animation for payment button */
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.floating-btn {
+    animation: floatUpDown 2s ease-in-out infinite;
+}
+
+/* Container styling */
+.container {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    width: 80%;
+    max-width: 500px;
+    margin-top: 200px;
+}
+
+/* Heading style */
+h1 {
+    color: #ffffff;
+}
+
+/* Paragraph style */
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* Plans layout */
+.plans {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Plan button styling */
+.plan-btn {
+    background-color: #ff0000;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for plan button */
+.plan-btn:hover {
+    background-color: #971111;
+    transform: scale(1.05);
+}
+
+/* Subscription details section */
+.subs-details {
+    background-color: transparent;
+    width: 80%;
+    max-width: 500px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Optional: style list items */
+.subs-details ul {
+    padding-left: 20px;
+}
+
+.subs-details li {
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+
+/* Floating button effect */
+.floating-btn {
+    animation: floatUpDown 2s ease-in-out infinite;
+}

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Payment</title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Choose a Subscription Plan</h2>
+        <div class="plan" onclick="selectPlan('Basic', 199)">₹199 - Basic</div>
+        <div class="plan" onclick="selectPlan('Standard', 499)">₹499 - Standard</div>
+        <div class="plan" onclick="selectPlan('Premium', 799)">₹799 - Premium</div>
+
+        {% if success %}
+          <div class="alert alert-success">
+              Payment successful!
+          </div>
+        {% endif %}
+
+        <form id="paymentForm" method="POST">
+            {% csrf_token %}
+            <h3>Enter Your Details</h3>
+            {{ form.username }}<br><br>
+            {{ form.password }}<br><br>
+
+            <h3>Card Payment</h3>
+            {{ form.card_number }}<br><br>
+            {{ form.cvv }}<br><br>
+
+            <!-- Hidden inputs for dynamically set values -->
+            <input type="hidden" name="amount" id="id_amount" value="{{ form.amount.value }}">
+            <input type="hidden" name="subscription_plan" id="id_subscription_plan" value="{{ form.subscription_plan.value }}">
+
+            <h3>Amount: ₹<span id="amount">0</span></h3>
+            
+            <button type="submit" class="btn-submit">Proceed to Pay</button>
+        </form>
+
+        <div class="login-in-singup">
+            <p>Already paid? <a href="{% url 'action' %}">Watch Now</a></p>
+        </div>
+    </div>
+
+    <script>
+        function selectPlan(plan, amount) {
+            // Update the displayed amount
+            document.getElementById('amount').innerText = amount;
+
+            // Set the hidden input fields dynamically
+            document.getElementById('id_amount').value = amount;
+            document.getElementById('id_subscription_plan').value = plan;
+
+            // Highlight the selected plan
+            document.querySelectorAll('.plan').forEach(p => p.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        // Prevent form submission if no plan is selected
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            if (document.getElementById('id_amount').value === '0' || document.getElementById('id_amount').value === '') {
+                alert('Please select a subscription plan.');
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
